@@ -56,10 +56,13 @@ export default {
         'king-steel': 'var(--king-steel)',
         'king-gold': 'var(--king-gold)',
         'king-gold-light': 'var(--king-gold-light)',
+        'king-blue-glow': 'var(--king-blue-glow)',
+        'king-blue-light': 'var(--king-blue-light)',
       },
       fontFamily: {
         arabic: ['var(--font-arabic)'],
         latin: ['var(--font-latin)'],
+        royal: ['Cinzel', 'serif'],
       },
       keyframes: {
         "accordion-down": {
@@ -96,6 +99,9 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         shine: "shine 2s linear infinite",
         glow: "glow 1.5s ease-in-out infinite alternate",
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
     },
   },

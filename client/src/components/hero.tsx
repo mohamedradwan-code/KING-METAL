@@ -34,8 +34,11 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 metallic-texture opacity-30" />
-      <div className="absolute inset-0 bg-gradient-to-bl from-king-black via-king-gray to-king-black" />
+      <div className="absolute inset-0 steel-texture" />
+      <div className="absolute inset-0 bg-gradient-to-bl from-king-black via-king-gray to-king-black opacity-90" />
+      {/* Blue Light Effects */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-radial from-king-blue-glow/20 to-transparent blur-3xl opacity-40" />
+      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-radial from-king-blue-light/15 to-transparent blur-2xl opacity-30" />
       
       {/* Animated Crown Pattern */}
       <motion.div
@@ -77,17 +80,17 @@ export function Hero() {
       >
         {/* Crown Logo */}
         <motion.div className="mb-8 flex justify-center" variants={fadeIn}>
-          <div className="w-32 h-32 bg-gradient-to-br from-king-gold via-king-gold-light to-king-gold rounded-full flex items-center justify-center shadow-2xl glow-effect">
-            <CrownIcon className="w-16 h-16 text-king-black" />
+          <div className="w-32 h-32 steel-texture rounded-full flex items-center justify-center shadow-2xl blue-glow border-2 border-king-gold/30">
+            <CrownIcon className="w-20 h-20 text-king-gold" />
           </div>
         </motion.div>
 
         {/* Main Headline */}
         <motion.div variants={fadeInUp}>
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            <span className="king-crown" data-testid="text-main-title">KING METAL</span>
+            <span className="king-crown font-royal" data-testid="text-main-title">KING METAL</span>
             <br />
-            <span className="text-3xl md:text-5xl font-arabic">ملوك الالوميتال فى مصر</span>
+            <span className="text-3xl md:text-5xl font-arabic text-king-gold">ملوك الالوميتال فى مصر</span>
           </h1>
         </motion.div>
 
@@ -107,7 +110,7 @@ export function Hero() {
         >
           <Button
             size="lg"
-            className="px-8 py-4 bg-gradient-to-r from-king-gold to-king-gold-light text-king-black font-bold rounded-xl hover:scale-105 transition-all duration-300 shadow-xl shine-effect"
+            className="px-8 py-4 bg-gradient-to-r from-king-gold to-king-gold-light text-king-black font-royal font-bold rounded-xl hover:scale-105 transition-all duration-300 shadow-xl shine-effect blue-glow"
             onClick={() => scrollToSection("contact")}
             data-testid="button-book-inspection"
           >
@@ -115,14 +118,13 @@ export function Hero() {
             احجز معاينة مجانية
           </Button>
           <Button
-            variant="outline"
             size="lg"
-            className="px-8 py-4 glass-morphism hover:bg-king-gold/10 rounded-xl transition-all duration-300 border-king-gold/30 hover:border-king-gold/50 text-white"
+            className="px-8 py-4 button-door text-white font-royal font-bold rounded-xl relative z-10"
             onClick={() => scrollToSection("gallery")}
             data-testid="button-view-gallery"
           >
-            <Images className="w-5 h-5 ml-2" />
-            شاهد أعمالنا
+            <Images className="w-5 h-5 ml-2 relative z-20" />
+            <span className="relative z-20">شاهد أعمالنا</span>
           </Button>
         </motion.div>
 

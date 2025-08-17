@@ -239,7 +239,7 @@ export function ContactForm() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full px-8 py-4 bg-gradient-to-r from-king-gold to-king-gold-light text-king-black font-bold rounded-xl hover:scale-105 transition-all duration-300 shadow-xl shine-effect disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full px-8 py-4 bg-gradient-to-r from-king-gold to-king-gold-light text-king-black font-royal font-bold rounded-xl hover:scale-105 transition-all duration-300 shadow-xl shine-effect blue-glow disabled:opacity-50 disabled:cursor-not-allowed"
                     data-testid="button-submit-form"
                   >
                     {isSubmitting ? (

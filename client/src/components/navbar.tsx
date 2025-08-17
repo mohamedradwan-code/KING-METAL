@@ -53,8 +53,8 @@ export function Navbar() {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="w-12 h-12 bg-gradient-to-br from-king-gold to-king-gold-light rounded-full flex items-center justify-center glow-effect">
-              <CrownIcon className="w-6 h-6 text-king-black" />
+            <div className="w-12 h-12 bg-gradient-to-br from-king-gold to-king-gold-light rounded-full flex items-center justify-center blue-glow steel-texture">
+              <CrownIcon className="w-8 h-8 text-king-gold" />
             </div>
             <div>
               <h1 className="text-xl font-bold king-crown" data-testid="logo-title">KING METAL</h1>
@@ -83,36 +83,33 @@ export function Navbar() {
           {/* CTA Buttons - Desktop */}
           <div className="hidden md:flex items-center space-x-reverse space-x-4">
             <Button
-              variant="outline"
               size="sm"
-              className="bg-king-gold/20 hover:bg-king-gold/30 border-king-gold/30 hover:border-king-gold/50 text-white"
+              className="button-door text-white font-royal relative z-10"
               asChild
               data-testid="button-call"
             >
               <a href="tel:+201234567890">
-                <Phone className="w-4 h-4 ml-2" />
-                اتصل الآن
+                <Phone className="w-4 h-4 ml-2 relative z-20" />
+                <span className="relative z-20">اتصل الآن</span>
               </a>
             </Button>
             <Button
-              variant="outline"
               size="sm"
-              className="bg-green-600/20 hover:bg-green-600/30 border-green-500/30 hover:border-green-500/50 text-white"
+              className="button-door text-white font-royal relative z-10 border-green-500/30 hover:border-green-400/50"
               asChild
               data-testid="button-whatsapp"
             >
               <a href="https://wa.me/201234567890" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="w-4 h-4 ml-2" />
-                واتساب
+                <MessageCircle className="w-4 h-4 ml-2 relative z-20" />
+                <span className="relative z-20">واتساب</span>
               </a>
             </Button>
             <Button
-              variant="outline"
               size="sm"
-              className="border-king-gold/30 hover:bg-king-gold/10 text-white"
+              className="button-door text-white font-royal relative z-10"
               data-testid="button-language"
             >
-              EN
+              <span className="relative z-20">EN</span>
             </Button>
           </div>
 

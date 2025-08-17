@@ -44,9 +44,14 @@ export function DoorPanel({
       onClick={handleClick}
       data-testid={dataTestId}
     >
-      <Card className="relative bg-gradient-to-br from-king-steel to-king-gray rounded-2xl p-8 h-96 metallic-texture border-2 border-king-gold/20 hover:border-king-gold/40 transition-all duration-300 overflow-hidden">
+      <Card className="relative steel-texture rounded-2xl p-8 h-96 border-2 border-king-gold/20 hover:border-king-gold/40 transition-all duration-300 overflow-hidden shadow-2xl">
         {/* Door Handle */}
-        <div className="absolute top-4 left-4 w-6 h-16 bg-gradient-to-b from-king-gold to-king-gold-light rounded-full shadow-lg" />
+        <div className="absolute top-4 left-4 w-8 h-20 bg-gradient-to-b from-king-gold via-king-gold-light to-king-gold rounded-full shadow-xl border border-king-gold/30" />
+        {/* Door Bolts */}
+        <div className="absolute top-6 right-6 w-3 h-3 rounded-full bg-king-steel border border-king-gold/40 shadow-inner" />
+        <div className="absolute top-16 right-6 w-3 h-3 rounded-full bg-king-steel border border-king-gold/40 shadow-inner" />
+        <div className="absolute bottom-16 right-6 w-3 h-3 rounded-full bg-king-steel border border-king-gold/40 shadow-inner" />
+        <div className="absolute bottom-6 right-6 w-3 h-3 rounded-full bg-king-steel border border-king-gold/40 shadow-inner" />
         
         {/* Content */}
         <div className="relative z-10 h-full flex flex-col justify-between">
@@ -54,7 +59,7 @@ export function DoorPanel({
             <div className="w-16 h-16 bg-king-gold/20 rounded-full flex items-center justify-center mb-4">
               {icon}
             </div>
-            <h3 className="text-2xl font-bold mb-3 text-white" data-testid={`${dataTestId}-title`}>
+            <h3 className="text-2xl font-royal font-bold mb-3 text-white" data-testid={`${dataTestId}-title`}>
               {title}
             </h3>
             <p className="text-gray-300 text-sm mb-4" data-testid={`${dataTestId}-description`}>
@@ -75,14 +80,14 @@ export function DoorPanel({
           {/* Button */}
           {buttonText && (
             <Button
-              className="mt-4 bg-king-gold/20 hover:bg-king-gold/30 border-king-gold/30 text-white"
+              className="mt-4 button-door text-white font-royal relative z-10"
               onClick={(e) => {
                 e.stopPropagation();
                 if (onClick) onClick();
               }}
               data-testid={`${dataTestId}-button`}
             >
-              {buttonText}
+              <span className="relative z-20">{buttonText}</span>
             </Button>
           )}
         </div>

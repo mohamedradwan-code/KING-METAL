@@ -45,12 +45,12 @@ export function Footer() {
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center space-x-reverse space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-king-gold to-king-gold-light rounded-full flex items-center justify-center">
-                <CrownIcon className="w-6 h-6 text-king-black" />
+              <div className="w-12 h-12 steel-texture rounded-full flex items-center justify-center border border-king-gold/30 blue-glow">
+                <CrownIcon className="w-8 h-8 text-king-gold" />
               </div>
               <div>
-                <h3 className="text-xl font-bold king-crown" data-testid="footer-logo-title">KING METAL</h3>
-                <p className="text-xs text-king-gold/70">ملوك الالوميتال</p>
+                <h3 className="text-xl font-bold king-crown font-royal" data-testid="footer-logo-title">KING METAL</h3>
+                <p className="text-xs text-king-gold/70 font-arabic">ملوك الالوميتال</p>
               </div>
             </div>
             <p className="text-gray-400 mb-4" data-testid="footer-company-description">
