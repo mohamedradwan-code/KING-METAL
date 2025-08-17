@@ -1,0 +1,132 @@
+Replit Master Prompt — KING METAL (Website ready for Vercel)
+
+Build a production-ready website for the company “KING METAL” (Arabic-first, Egypt-based), using Next.js 14 (App Router) + TypeScript + Tailwind CSS + Framer Motion + shadcn/ui + Lucide icons + next/font/google. The site must be dark, luxurious, fast, and deployable to Vercel without any issues. Integrate Vercel Analytics out of the box.
+
+Key goals
+
+Brand: KING METAL — Slogan: "ملوك الالوميتال فى مصر" (Arabic).
+
+Theme: deep elegant black with subtle metallic/brushed-steel textures and glossy edge highlights (light streaks on edges when hovering/scrolling).
+
+Performance: very fast, responsive (mobile-first), accessible (WCAG), and SEO-ready.
+
+Visual concept: homepage sections look like armored doors (interactive “door panels”) that open/close to reveal content. Think tasteful, realistic metal—not cartoonish.
+
+Arabic RTL by default. Clean English fallbacks allowed for tech text, but main UI is Arabic.
+
+Tech requirements
+
+Next.js 14 (App Router) + TypeScript. Use server components where possible.
+
+Tailwind CSS configured; add custom utilities for metallic gradients and edge highlights (e.g., conic/radial-overlay).
+
+Fonts: use next/font/google → Arabic-friendly (e.g., Tajawal or Cairo) for headings/body; Inter for Latin.
+
+framer-motion for snappy, elegant animations (200–300ms), respecting prefers-reduced-motion.
+
+shadcn/ui for base components (Buttons, Accordion, Card, Dialog, Sheet).
+
+Lucide-react icons (shield, crown, kitchen, wrench, phone, whatsapp, mail).
+
+Vercel Analytics: install @vercel/analytics, import { Analytics } in app/layout.tsx and render <Analytics />.
+
+Images: use Next <Image /> with placeholders and lazy loading. Provide a few abstract, realistic metal textures via CSS (no external URLs required).
+
+SEO: set metadata, Open Graph, robots.txt, sitemap.xml (can use a simple static sitemap). Add JSON-LD LocalBusiness for a metal works company in Egypt.
+
+Deployment: ensure npm run build works with zero config on Vercel. No Node APIs that require custom servers. Include a minimal vercel.json only if necessary.
+
+Information Architecture (Arabic UI)
+
+Navbar (sticky, semi-transparent black):
+Logo (crown + “KING METAL”), links: الأبواب المصفحة | المطابخ الألوميتال | أعمالنا | آراء العملاء | المواصفات | الأسئلة الشائعة | تواصل معنا.
+CTAs: اتصل الآن (tel: placeholder), واتساب (wa.me placeholder). Add a small language toggle (AR/EN).
+
+Hero (full-bleed, dark-metal gradient + subtle animated shine):
+Big Arabic headline: "KING METAL — ملوك الالوميتال فى مصر"
+Subline: “أبواب مصفحة فاخرة ومطابخ ألوميتال بمعايير الملك”
+Two CTAs: احجز معاينة (scroll to contact) / شاهد الأعمال (scroll to gallery).
+
+Door-Sections Concept (the core):
+Implement 4–6 door-shaped panels (Cards with rounded-2xl + 3D metallic edges). Each panel has a handle icon and opens with a hinge-like 3D transform (framer-motion + CSS perspective) revealing content inside.
+Panels (each one is a “door”):
+
+الأبواب المصفحة (Shield icon) – features list, materials, locking systems, short spec grid.
+
+المطابخ الألوميتال (Kitchen icon) – colors/finishes, hardware brands, sample layouts.
+
+أعمالنا (Gallery) – responsive grid with hover shine; lightbox dialog from shadcn/ui.
+
+آراء العملاء – testimonial slider (motion) with subtle parallax.
+
+المواصفات – comparison table (Door models vs. thickness/locks/finish).
+
+الأسئلة الشائعة – Accordion (shadcn/ui) with 8–10 FAQs.
+Include micro-interactions: when hovering a door edge, show a gloss streak moving along the border (CSS mask or conic-gradient).
+
+Contact / Quote Section (dark card):
+Form fields (Name, Phone, City, Service type: Door/Kitchen, Message). Client-side validation; success state with check icon. Provide buttons: اتصال (tel:) and واتساب.
+Add a small map placeholder (static image or CSS block) and working links only as placeholders.
+
+Footer:
+Crown mark, brief copy, quick links, phone/WhatsApp/email placeholders, © year.
+
+Styling details
+
+Palette: near-black background (#0b0b0d), gunmetal grays, subtle warm highlights (golden accent for crown/edges). Avoid flat pure black; use layered gradients.
+
+Glossy edge highlight: create a reusable utility that renders a faint animated highlight along borders on hover/in-view (e.g., before: pseudo-element with conic-gradient and low opacity).
+
+Metal texture: CSS-based using layered linear-gradient & noise texture via CSS (no external images required).
+
+Buttons: premium, slightly beveled with thin golden border and subtle inner glow on hover.
+
+Animations: door open/close uses perspective 1200–1600px, rotateY approx 0→-12deg on hover/tap, and a full open state on click/expand (Accordion-like). Respect reduced motion.
+
+Content (Arabic placeholders, keep copy concise)
+
+Slogan: "ملوك الالوميتال فى مصر"
+
+Sample bullets (الأبواب): “تصنيع سُمك عالي”، “أنظمة غلق متعددة”، “عزل صوت وحرارة”، “تشطيبات فاخرة”.
+
+Sample bullets (المطابخ): “مقاوم للرطوبة”، “مفصلات هيدروليك”، “ألوان وأنسجة معدنية”.
+
+CTAs: اطلب عرض سعر، اتصل الآن، راسلنا على واتساب.
+
+Files & structure to generate
+
+package.json with: next, react, react-dom, typescript, tailwindcss, postcss, autoprefixer, framer-motion, @vercel/analytics, lucide-react, class-variance-authority, tailwind-merge, shadcn/ui packages.
+
+next.config.ts, tsconfig.json, postcss.config.js, tailwind.config.ts (with RTL support via dir="rtl" on <html> in app/layout.tsx).
+
+app/layout.tsx: global fonts, <Analytics />, meta, HTML lang=“ar” dir=“rtl”.
+
+app/page.tsx: hero + door-panels + sections as described.
+
+components/ folder: DoorPanel.tsx (reusable door card), NavBar.tsx, Footer.tsx, ContactForm.tsx, GlossyBorder.tsx, Gallery.tsx, TestimonialCarousel.tsx.
+
+lib/animations.ts for motion variants (fast/snappy).
+
+styles/globals.css with Tailwind base + custom CSS vars for metallic/shine.
+
+public/icons/ crown SVG.
+
+public/opengraph-image.png placeholder.
+
+Accessibility
+
+Proper headings, labels, aria-expanded for door panels, focus states high contrast, keyboard toggling of panels, reduced motion support.
+
+Acceptance criteria
+
+npm run build passes locally; ready for Vercel with zero extra config.
+
+<Analytics /> from @vercel/analytics/react is present in root layout.
+
+Door-panels open/close smoothly (hover preview + click to expand).
+
+Fully responsive (320px → 1440+).
+
+Lighthouse: Performance ≥ 90, Accessibility ≥ 95, Best Practices ≥ 90, SEO ≥ 90 (on sample content).
+
+No external paywalled assets; all effects are CSS/JS driven.
