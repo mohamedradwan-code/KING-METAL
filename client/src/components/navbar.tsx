@@ -53,7 +53,7 @@ export function Navbar() {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="w-12 h-12 bg-gradient-to-br from-king-gold to-king-gold-light rounded-full flex items-center justify-center blue-glow steel-texture">
+            <div className="w-12 h-12 bg-king-gray rounded-full flex items-center justify-center border border-king-steel/30">
               <CrownIcon className="w-8 h-8 text-king-gold" />
             </div>
             <div>
@@ -84,32 +84,33 @@ export function Navbar() {
           <div className="hidden md:flex items-center space-x-reverse space-x-4">
             <Button
               size="sm"
-              className="button-door text-white font-royal relative z-10"
+              className="bg-king-gray hover:bg-king-steel text-white border border-king-steel/30"
               asChild
               data-testid="button-call"
             >
               <a href="tel:+201234567890">
-                <Phone className="w-4 h-4 ml-2 relative z-20" />
-                <span className="relative z-20">اتصل الآن</span>
+                <Phone className="w-4 h-4 ml-2" />
+                اتصل الآن
               </a>
             </Button>
             <Button
               size="sm"
-              className="button-door text-white font-royal relative z-10 border-green-500/30 hover:border-green-400/50"
+              className="bg-green-600 hover:bg-green-700 text-white border border-green-500/30"
               asChild
               data-testid="button-whatsapp"
             >
               <a href="https://wa.me/201234567890" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="w-4 h-4 ml-2 relative z-20" />
-                <span className="relative z-20">واتساب</span>
+                <MessageCircle className="w-4 h-4 ml-2" />
+                واتساب
               </a>
             </Button>
             <Button
               size="sm"
-              className="button-door text-white font-royal relative z-10"
+              variant="outline"
+              className="border-king-steel hover:bg-king-steel text-white"
               data-testid="button-language"
             >
-              <span className="relative z-20">EN</span>
+              EN
             </Button>
           </div>
 
@@ -140,7 +141,7 @@ export function Navbar() {
                 
                 <div className="flex flex-col space-y-4 pt-6 border-t border-king-gold/20">
                   <Button
-                    className="bg-king-gold/20 hover:bg-king-gold/30 border-king-gold/30 text-white"
+                    className="bg-king-gray hover:bg-king-steel text-white"
                     asChild
                   >
                     <a href="tel:+201234567890">
@@ -149,7 +150,7 @@ export function Navbar() {
                     </a>
                   </Button>
                   <Button
-                    className="bg-green-600/20 hover:bg-green-600/30 border-green-500/30 text-white"
+                    className="bg-green-600 hover:bg-green-700 text-white"
                     asChild
                   >
                     <a href="https://wa.me/201234567890" target="_blank" rel="noopener noreferrer">

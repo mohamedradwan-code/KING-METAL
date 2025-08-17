@@ -95,7 +95,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-black mb-6 king-crown font-royal" data-testid="door-panels-title">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 king-crown" data-testid="door-panels-title">
               منتجاتنا الملكية
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto" data-testid="door-panels-description">

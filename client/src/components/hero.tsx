@@ -78,17 +78,12 @@ export function Hero() {
         initial="initial"
         animate="animate"
       >
-        {/* Crown Logo */}
-        <motion.div className="mb-8 flex justify-center" variants={fadeIn}>
-          <div className="w-32 h-32 steel-texture rounded-full flex items-center justify-center shadow-2xl blue-glow border-2 border-king-gold/30">
-            <CrownIcon className="w-20 h-20 text-king-gold" />
-          </div>
-        </motion.div>
+
 
         {/* Main Headline */}
         <motion.div variants={fadeInUp}>
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            <span className="king-crown font-royal" data-testid="text-main-title">KING METAL</span>
+            <span className="king-crown" data-testid="text-main-title">KING METAL</span>
             <br />
             <span className="text-3xl md:text-5xl font-arabic text-king-gold">ملوك الالوميتال فى مصر</span>
           </h1>
@@ -110,7 +105,7 @@ export function Hero() {
         >
           <Button
             size="lg"
-            className="px-8 py-4 bg-gradient-to-r from-king-gold to-king-gold-light text-king-black font-royal font-bold rounded-xl hover:scale-105 transition-all duration-300 shadow-xl shine-effect blue-glow"
+            className="px-8 py-4 bg-king-gray hover:bg-king-steel text-white font-bold rounded-xl hover:scale-105 transition-all duration-300 shadow-xl"
             onClick={() => scrollToSection("contact")}
             data-testid="button-book-inspection"
           >
@@ -119,12 +114,13 @@ export function Hero() {
           </Button>
           <Button
             size="lg"
-            className="px-8 py-4 button-door text-white font-royal font-bold rounded-xl relative z-10"
+            variant="outline"
+            className="px-8 py-4 border-king-steel hover:bg-king-steel text-white font-bold rounded-xl transition-all duration-300"
             onClick={() => scrollToSection("gallery")}
             data-testid="button-view-gallery"
           >
-            <Images className="w-5 h-5 ml-2 relative z-20" />
-            <span className="relative z-20">شاهد أعمالنا</span>
+            <Images className="w-5 h-5 ml-2" />
+            شاهد أعمالنا
           </Button>
         </motion.div>
 

@@ -49,7 +49,7 @@ export function Footer() {
                 <CrownIcon className="w-8 h-8 text-king-gold" />
               </div>
               <div>
-                <h3 className="text-xl font-bold king-crown font-royal" data-testid="footer-logo-title">KING METAL</h3>
+                <h3 className="text-xl font-bold king-crown" data-testid="footer-logo-title">KING METAL</h3>
                 <p className="text-xs text-king-gold/70 font-arabic">ملوك الالوميتال</p>
               </div>
             </div>
