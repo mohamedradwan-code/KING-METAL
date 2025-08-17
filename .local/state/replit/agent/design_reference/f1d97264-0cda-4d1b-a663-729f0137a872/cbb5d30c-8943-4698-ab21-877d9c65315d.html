@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KING METAL - ملوك الالوميتال فى مصر</title>
+    <meta name="description" content="KING METAL - أبواب مصفحة فاخرة ومطابخ ألوميتال بمعايير الملك في مصر">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="KING METAL - ملوك الالوميتال فى مصر">
+    <meta property="og:description" content="أبواب مصفحة فاخرة ومطابخ ألوميتال بمعايير الملك">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_EG">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'arabic': ['Tajawal', 'sans-serif'],
+                        'latin': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'dark-primary': '#0b0b0d',
+                        'dark-secondary': '#1a1a1a',
+                        'gunmetal': '#2a2a2a',
+                        'gold': '#d4af37',
+                        'gold-dark': '#b8860b',
+                        'metallic': '#c0c0c0'
+                    },
+                    animation: {
+                        'shine': 'shine 2s ease-in-out infinite',
+                        'door-open': 'doorOpen 0.3s ease-out forwards',
+                        'float': 'float 3s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        shine: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(100%)' }
+                        },
+                        doorOpen: {
+                            '0%': { transform: 'perspective(1200px) rotateY(0deg)' },
+                            '100%': { transform: 'perspective(1200px) rotateY(-12deg)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .metallic-texture {
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(26, 26, 26, 0.9) 100%),
+                linear-gradient(45deg, rgba(11, 11, 13, 1) 0%, rgba(42, 42, 42, 1) 100%);
+        }
+
+        .glossy-border {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glossy-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .glossy-border:hover::before {
+            left: 100%;
+        }
+
+        .door-panel {
+            perspective: 1200px;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease-out;
+        }
+
+        .door-panel:hover {
+            transform: perspective(1200px) rotateY(-5deg);
+        }
+
+        .door-panel.open {
+            transform: perspective(1200px) rotateY(-15deg);
+        }
+
+        .door-handle {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 40px;
+            background: linear-gradient(180deg, #d4af37, #b8860b);
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+        }
+
+        .premium-button {
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border: 1px solid #d4af37;
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.3),
+                inset 0 1px 2px rgba(212, 175, 55, 0.1);
+        }
+
+        .premium-button:hover {
+            background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+            box-shadow: 
+                0 4px 16px rgba(212, 175, 55, 0.2),
+                inset 0 1px 2px rgba(212, 175, 55, 0.2);
+        }
+
+        .hero-shine {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+            animation: shine 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-dark-primary text-white font-arabic">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-dark-primary/90 backdrop-blur-md border-b border-gunmetal/30">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-reverse space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center">
+                        <i data-lucide="crown" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gold">KING METAL</h1>
+                        <p class="text-xs text-metallic">ملوك الالوميتال</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-reverse space-x-8 text-sm">
+                    <a href="#doors" class="hover:text-gold transition-colors">الأبواب المصفحة</a>
+                    <a href="#kitchens" class="hover:text-gold transition-colors">المطابخ الألوميتال</a>
+                    <a href="#gallery" class="hover:text-gold transition-colors">أعمالنا</a>
+                    <a href="#testimonials" class="hover:text-gold transition-colors">آراء العملاء</a>
+                    <a href="#specifications" class="hover:text-gold transition-colors">المواصفات</a>
+                    <a href="#faq" class="hover:text-gold transition-colors">الأسئلة الشائعة</a>
+                    <a href="#contact" class="hover:text-gold transition-colors">تواصل معنا</a>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex items-center space-x-reverse space-x-4">
+                    <button class="premium-button px-4 py-2 rounded-lg text-sm font-medium hover:scale-105 transition-all">
+                        <i data-lucide="phone" class="w-4 h-4 inline ml-2"></i>
+                        اتصل الآن
+                    </button>
+                    <button class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg text-sm font-medium transition-all">
+                        <i data-lucide="message-circle" class="w-4 h-4 inline ml-2"></i>
+                        واتساب
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center metallic-texture overflow-hidden">
+        <div class="hero-shine"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <!-- Crown animation -->
+                <div class="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-gold to-gold-dark rounded-full flex items-center justify-center animate-float">
+                    <i data-lucide="crown" class="w-10 h-10 text-white"></i>
+                </div>
+
+                <h1 class="text-5xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-gold via-metallic to-gold bg-clip-text text-transparent">
+                    KING METAL
+                </h1>
+                <p class="text-2xl lg:text-3xl font-bold mb-4 text-gold">
+                    ملوك الالوميتال فى مصر
+                </p>
+                <p class="text-lg lg:text-xl mb-12 text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    أبواب مصفحة فاخرة ومطابخ ألوميتال بمعايير الملك
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <button class="premium-button px-8 py-4 rounded-xl text-lg font-semibold hover:scale-105 transition-all">
+                        <i data-lucide="calendar" class="w-5 h-5 inline ml-3"></i>
+                        احجز معاينة
+                    </button>
+                    <button class="bg-transparent border-2 border-gold text-gold px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gold hover:text-dark-primary transition-all">
+                        <i data-lucide="eye" class="w-5 h-5 inline ml-3"></i>
+                        شاهد الأعمال
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Door Panels Section -->
+    <section class="py-20 bg-gradient-to-b from-dark-primary to-dark-secondary">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gold">خدماتنا الملكية</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- @COMPONENT: DoorPanel [doors content] -->
+                <div class="door-panel glossy-border bg-gradient-to-br from-gunmetal to-dark-secondary rounded-2xl p-8 cursor-pointer" id="doors">
+                    <div class="door-handle"></div>
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gold to-gold-dark rounded-full flex items-center justify-center">
+                            <i data-lucide="shield" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gold">الأبواب المصفحة</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-reverse space-x-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-gold flex-shrink-0"></i>
+                            <span class="text-gray-300">تصنيع سُمك عالي</span>
+                        </div>
+                        <div class="flex items-center space-x-reverse space-x-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-gold flex-shrink-0"></i>
+                            <span class="text-gray-300">أنظمة غلق متعددة</span>
+                        </div>
+                        <div class="flex items-center space-x-reverse space-x-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-gold flex-shrink-0"></i>
+                            <span class="text-gray-300">عزل صوت وحرارة</span>
+                        </div>
+                        <div class="flex items-center space-x-reverse space-x-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-gold flex-shrink-0"></i>
+                            <span class="text-gray-300">تشطيبات فاخرة</span>
+                        </div>
+                    </div>
+
+                    <button class="w-full mt-6 premium-button py-3 rounded-lg font-medium hover:scale-102 transition-all">
+                        اطلب عرض سعر
+                    </button>
+                </div>
+                <!-- @END_COMPONENT: DoorPanel -->
+
+                <!-- Kitchen Panel -->
+                <div class="door-panel glossy-border bg-gradient-to-br from-gunmetal to-dark-secondary rounded-2xl p-8 cursor-pointer" id="kitchens">
+                    <div class="door-handle"></div>
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gold to-gold-dark rounded-full flex items-center justify-center">
+                            <i data-lucide="chef-hat" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gold">المطابخ الألوميتال</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-reverse space-x-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-gold flex-shrink-0"></i>
+                            <span class="text-gray-300">مقاوم للرطوبة</span>
+                        </div>
+                        <div class="flex items-center space-x-reverse space-x-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-gold flex-shrink-0"></i>
+                            <span class="text-gray-300">مفصلات هيدروليك</span>
+                        </div>
+                        <div class="flex items-center space-x-reverse space-x-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-gold flex-shrink-0"></i>
+                            <span class="text-gray-300">ألوان وأنسجة معدنية</span>
+                        </div>
+                        <div class="flex items-center space-x-reverse space-x-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-gold flex-shrink-0"></i>
+                            <span class="text-gray-300">تصميمات عصرية</span>
+                        </div>
+                    </div>
+
+                    <button class="w-full mt-6 premium-button py-3 rounded-lg font-medium hover:scale-102 transition-all">
+                        استشارة مجانية
+                    </button>
+                </div>
+
+                <!-- Gallery Panel -->
+                <div class="door-panel glossy-border bg-gradient-to-br from-gunmetal to-dark-secondary rounded-2xl p-8 cursor-pointer" id="gallery">
+                    <div class="door-handle"></div>
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gold to-gold-dark rounded-full flex items-center justify-center">
+                            <i data-lucide="image" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gold">أعمالنا</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 mb-6">
+                        <!-- Luxury door showcase -->
+                        <img src="https://images.unsplash.com/photo-1585128792020-803d29415281?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300" alt="باب مصفح فاخر" class="rounded-lg w-full h-20 object-cover">
+                        <!-- Modern aluminum kitchen -->
+                        <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300" alt="مطبخ ألوميتال عصري" class="rounded-lg w-full h-20 object-cover">
+                        <!-- Metallic door detail -->
+                        <img src="https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300" alt="تفاصيل معدنية" class="rounded-lg w-full h-20 object-cover">
+                        <!-- Kitchen cabinet hardware -->
+                        <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300" alt="خزانات المطبخ" class="rounded-lg w-full h-20 object-cover">
+                    </div>
+
+                    <button class="w-full premium-button py-3 rounded-lg font-medium hover:scale-102 transition-all">
+                        عرض المعرض كاملاً
+                    </button>
+                </div>
+
+                <!-- Testimonials Panel -->
+                <div class="door-panel glossy-border bg-gradient-to-br from-gunmetal to-dark-secondary rounded-2xl p-8 cursor-pointer" id="testimonials">
+                    <div class="door-handle"></div>
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gold to-gold-dark rounded-full flex items-center justify-center">
+                            <i data-lucide="star" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gold">آراء العملاء</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-dark-primary/50 rounded-lg p-4">
+                            <div class="flex space-x-reverse space-x-1 mb-2">
+                                <i data-lucide="star" class="w-4 h-4 text-gold fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-gold fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-gold fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-gold fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-gold fill-current"></i>
+                            </div>
+                            <p class="text-sm text-gray-300">"جودة ممتازة وخدمة احترافية"</p>
+                            <p class="text-xs text-gold mt-2">- أحمد محمد، القاهرة</p>
+                        </div>
+                    </div>
+
+                    <button class="w-full mt-6 premium-button py-3 rounded-lg font-medium hover:scale-102 transition-all">
+                        قراءة المزيد
+                    </button>
+                </div>
+
+                <!-- Specifications Panel -->
+                <div class="door-panel glossy-border bg-gradient-to-br from-gunmetal to-dark-secondary rounded-2xl p-8 cursor-pointer" id="specifications">
+                    <div class="door-handle"></div>
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gold to-gold-dark rounded-full flex items-center justify-center">
+                            <i data-lucide="settings" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gold">المواصفات</h3>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-300">السماكة:</span>
+                            <span class="text-gold">5-10 سم</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-300">المادة:</span>
+                            <span class="text-gold">فولاذ عالي الجودة</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-300">الضمان:</span>
+                            <span class="text-gold">5 سنوات</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-300">التركيب:</span>
+                            <span class="text-gold">مجاني</span>
+                        </div>
+                    </div>
+
+                    <button class="w-full mt-6 premium-button py-3 rounded-lg font-medium hover:scale-102 transition-all">
+                        تفاصيل أكثر
+                    </button>
+                </div>
+
+                <!-- FAQ Panel -->
+                <div class="door-panel glossy-border bg-gradient-to-br from-gunmetal to-dark-secondary rounded-2xl p-8 cursor-pointer" id="faq">
+                    <div class="door-handle"></div>
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gold to-gold-dark rounded-full flex items-center justify-center">
+                            <i data-lucide="help-circle" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gold">الأسئلة الشائعة</h3>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="border-b border-gunmetal pb-2">
+                            <p class="text-sm font-medium text-gray-300">كم تستغرق عملية التصنيع؟</p>
+                            <p class="text-xs text-gold mt-1">15-20 يوم عمل</p>
+                        </div>
+                        <div class="border-b border-gunmetal pb-2">
+                            <p class="text-sm font-medium text-gray-300">هل يوجد ضمان؟</p>
+                            <p class="text-xs text-gold mt-1">ضمان 5 سنوات شامل</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-300">طرق الدفع المتاحة؟</p>
+                            <p class="text-xs text-gold mt-1">نقداً أو تقسيط</p>
+                        </div>
+                    </div>
+
+                    <button class="w-full mt-6 premium-button py-3 rounded-lg font-medium hover:scale-102 transition-all">
+                        جميع الأسئلة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-20 bg-dark-secondary">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gold">معرض أعمالنا</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- @MAP: galleryItems.map(item => ( -->
+                <!-- Luxury armored door in elegant entrance -->
+                <div class="glossy-border rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-all">
+                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="باب مصفح فاخر في مدخل أنيق" class="w-full h-64 object-cover">
+                </div>
+                
+                <!-- Modern aluminum kitchen with premium finishes -->
+                <div class="glossy-border rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-all">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="مطبخ ألوميتال حديث بتشطيبات راقية" class="w-full h-64 object-cover">
+                </div>
+
+                <!-- Metallic door with brushed steel finish -->
+                <div class="glossy-border rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-all">
+                    <img src="https://images.unsplash.com/photo-1534237886190-ced735ca4b73?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="باب معدني بتشطيب فولاذي مصقول" class="w-full h-64 object-cover">
+                </div>
+
+                <!-- Contemporary kitchen cabinet with aluminum frames -->
+                <div class="glossy-border rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-all">
+                    <img src="https://images.unsplash.com/photo-1574180566232-aaad1b5b8450?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="خزانة مطبخ عصرية بإطارات ألومنيوم" class="w-full h-64 object-cover">
+                </div>
+
+                <!-- High-security door with multiple locking systems -->
+                <div class="glossy-border rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-all">
+                    <img src="https://pixabay.com/get/ge53bf3fbd4ec227d42ff2c3caa25e94b2c71430f822973900b7d02087da6236e0079dc3b917de8e1fb65bbbe010ec8ca7b8a50edccf9dda218dfb5a08f377bd2_1280.jpg" alt="باب أمان عالي بأنظمة إغلاق متعددة" class="w-full h-64 object-cover">
+                </div>
+
+                <!-- Premium kitchen island with aluminum accents -->
+                <div class="glossy-border rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-all">
+                    <img src="https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="جزيرة مطبخ راقية بلمسات ألومنيوم" class="w-full h-64 object-cover">
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-gradient-to-b from-dark-secondary to-dark-primary" id="contact">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gold">تواصل معنا</h2>
+            
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+                <!-- @COMPONENT: ContactForm -->
+                <div class="bg-gradient-to-br from-gunmetal to-dark-secondary p-8 rounded-2xl glossy-border">
+                    <h3 class="text-2xl font-bold mb-6 text-gold">احصل على عرض سعر مجاني</h3>
+                    
+                    <form class="space-y-6" data-mock="true">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-300">الاسم الكامل</label>
+                            <input type="text" class="w-full px-4 py-3 bg-dark-primary border border-gunmetal rounded-lg focus:border-gold focus:outline-none text-white" placeholder="أدخل اسمك">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-300">رقم الهاتف</label>
+                            <input type="tel" class="w-full px-4 py-3 bg-dark-primary border border-gunmetal rounded-lg focus:border-gold focus:outline-none text-white" placeholder="رقم الهاتف">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-300">المدينة</label>
+                            <input type="text" class="w-full px-4 py-3 bg-dark-primary border border-gunmetal rounded-lg focus:border-gold focus:outline-none text-white" placeholder="مدينتك">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-300">نوع الخدمة</label>
+                            <select class="w-full px-4 py-3 bg-dark-primary border border-gunmetal rounded-lg focus:border-gold focus:outline-none text-white">
+                                <option>أبواب مصفحة</option>
+                                <option>مطابخ ألوميتال</option>
+                                <option>كلاهما</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-300">الرسالة</label>
+                            <textarea rows="4" class="w-full px-4 py-3 bg-dark-primary border border-gunmetal rounded-lg focus:border-gold focus:outline-none text-white resize-none" placeholder="تفاصيل إضافية..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full premium-button py-4 rounded-lg text-lg font-semibold hover:scale-102 transition-all">
+                            <i data-lucide="send" class="w-5 h-5 inline ml-2"></i>
+                            إرسال الطلب
+                        </button>
+                        <!-- TODO: Implement form submission, validation, and success state -->
+                    </form>
+                </div>
+                <!-- @END_COMPONENT: ContactForm -->
+                
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="bg-gradient-to-br from-gunmetal to-dark-secondary p-8 rounded-2xl glossy-border">
+                        <h3 class="text-2xl font-bold mb-6 text-gold">بيانات التواصل</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-reverse space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="phone" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-300">اتصل بنا</p>
+                                    <p class="text-gold font-semibold">+20 123 456 7890</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-reverse space-x-4">
+                                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="message-circle" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-300">واتساب</p>
+                                    <p class="text-green-400 font-semibold">+20 123 456 7890</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-reverse space-x-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="mail" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-300">البريد الإلكتروني</p>
+                                    <p class="text-blue-400 font-semibold">info@kingmetal.eg</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-reverse space-x-4">
+                                <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="map-pin" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-300">العنوان</p>
+                                    <p class="text-red-400 font-semibold">القاهرة، مصر</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Placeholder -->
+                    <div class="bg-gradient-to-br from-gunmetal to-dark-secondary p-8 rounded-2xl glossy-border">
+                        <!-- Egyptian architectural landmark - modern buildings in Cairo -->
+                        <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" alt="معمار حديث في القاهرة" class="w-full h-48 object-cover rounded-lg">
+                        <p class="text-center mt-4 text-gray-300 text-sm">موقعنا في القاهرة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-primary border-t border-gunmetal/30 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Logo & Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-reverse space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center">
+                            <i data-lucide="crown" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gold">KING METAL</h3>
+                            <p class="text-sm text-metallic">ملوك الالوميتال فى مصر</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        نحن متخصصون في تصنيع وتركيب الأبواب المصفحة الفاخرة والمطابخ الألوميتال بأعلى معايير الجودة في مصر.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-gold mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#doors" class="hover:text-gold transition-colors">الأبواب المصفحة</a></li>
+                        <li><a href="#kitchens" class="hover:text-gold transition-colors">المطابخ الألوميتال</a></li>
+                        <li><a href="#gallery" class="hover:text-gold transition-colors">أعمالنا</a></li>
+                        <li><a href="#contact" class="hover:text-gold transition-colors">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold text-gold mb-4">تواصل معنا</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center space-x-reverse space-x-2">
+                            <i data-lucide="phone" class="w-4 h-4"></i>
+                            <span>+20 123 456 7890</span>
+                        </li>
+                        <li class="flex items-center space-x-reverse space-x-2">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <span>واتساب</span>
+                        </li>
+                        <li class="flex items-center space-x-reverse space-x-2">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                            <span>info@kingmetal.eg</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gunmetal/30 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 KING METAL - ملوك الالوميتال. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        (function() {
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            // Door panel interactions
+            const doorPanels = document.querySelectorAll('.door-panel');
+            
+            doorPanels.forEach(panel => {
+                let isOpen = false;
+                
+                panel.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Toggle open state
+                    isOpen = !isOpen;
+                    
+                    if (isOpen) {
+                        this.classList.add('open');
+                        // TODO: Implement full panel expansion with content reveal
+                    } else {
+                        this.classList.remove('open');
+                    }
+                });
+
+                // Reset hover state when not interacting
+                panel.addEventListener('mouseleave', function() {
+                    if (!isOpen) {
+                        this.style.transform = '';
+                    }
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Form validation (basic client-side)
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement proper form validation and submission
+                    console.log('Form submitted - implement validation and API call');
+                });
+            }
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe door panels for scroll animations
+            doorPanels.forEach(panel => {
+                panel.style.opacity = '0';
+                panel.style.transform = 'translateY(30px)';
+                panel.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(panel);
+            });
+
+            // Gallery lightbox simulation (placeholder)
+            const galleryImages = document.querySelectorAll('.glossy-border img');
+            galleryImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    // TODO: Implement lightbox modal for image viewing
+                    console.log('Open lightbox for:', this.alt);
+                });
+            });
+
+            // Respect reduced motion preferences
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            if (prefersReducedMotion.matches) {
+                // Disable animations for users who prefer reduced motion
+                document.documentElement.style.setProperty('--animation-duration', '0s');
+            }
+
+        })();
+    </script>
+
+</body>
+</html>
